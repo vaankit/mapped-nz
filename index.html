@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapped.NZ | Visualizing Aotearoa</title>
+    <style>
+        /* --- 1. VISUAL STYLE (Dark Mode) --- */
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #1e2128;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent: #00d2ff; /* Neon Blue */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- 2. HEADER --- */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            background: rgba(15, 17, 21, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .logo-accent { color: var(--accent); }
+        
+        .tagline {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 3. GALLERY GRID (Masonry Style) --- */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            columns: 3 300px; /* Creates the masonry columns */
+            column-gap: 1.5rem;
+        }
+
+        .map-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem; /* Space between items vertically */
+            break-inside: avoid; /* Prevents card from splitting across columns */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .map-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.15);
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #333;
+        }
+
+        .map-info {
+            padding: 1.2rem;
+        }
+
+        .map-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .map-stat {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .map-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        /* --- 4. FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+
+        /* Mobile Fix */
+        @media (max-width: 600px) {
+            .gallery-container { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mapped<span class="logo-accent">.NZ</span></h1>
+        <div class="tagline">Visualizing Aotearoa</div>
+    </header>
+
+    <div class="gallery-container">
+        
+        <div class="map-card">
+            <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="map-image" alt="Map">
+            <div class="map-info">
+                <span class="map-title">Safest Regions 2026</span>
+                <div class="map-stat">Lowest Risk: Otago</div>
+                <div class="map-desc">Comparison of burglary rates per 100 residents across 16 regional councils.</div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="map-image" alt="Map">
+            <div class="map-info">
+                <span class="map-title">Median Incomes</span>
+                <div class="map-stat">Highest: Wellington</div>
+                <div class="map-desc">Heatmap showing weekly earnings. Wellington tops the chart at $1,800/week.</div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b91d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="map-image" alt="Map">
+            <div class="map-info">
+                <span class="map-title">Housing Affordability</span>
+                <div class="map-stat">Most Expensive: Queenstown</div>
+                <div class="map-desc">Ratio of income to house prices.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Mapped.NZ | Unofficial Statistics<br>
+        <a href="#">Instagram</a> &bull; <a href="#">Twitter</a>
+    </footer>
+
+</body>
+</html>
